@@ -24,8 +24,8 @@ The Rodent Refreshment Regulator (RRR) is a python-based application that is des
 - User-friendly GUI with detailed instructions and headers for easy configuration.
 - An optional "Suggest & Push Settings" feature that queries the user for how they wish to use the RRR.
 - Customizable time intervals (in seconds) between water dispenses.
-- Adjustable number of triggers per time interval, to change the amount of water provided each time.
-- Adjustable time windows for water dispensing - allows for setting start/end times and having hours of the day that are excluded from water dispensing regardless of your chosen interval.
+- Adjustable number of triggers per time interval, allowing for different amounts of water to be provided each time.
+- Changeable time windows for water dispensing - allows for setting start/end times and having hours of the day that are excluded from water dispensing regardless of your chosen interval.
 - Email notifications and/or Slack bot functionality to indicate successful water dispensing when using the RRR remotely.
 - Advanced settings for fine-tuning system behavior.
 - Log messages displayed in a GUI-integrated terminal.
@@ -62,12 +62,12 @@ While not essential for a working RRR system, we designed an assortment of 3D mo
    b. A model to guard the water output tube within each enclosure - features a section for water to be deposited while blocking access to the tube, to prevent mice from chewing on it.
    c. A model to hold a syringe upright, for use as a makeshift water reservoir when initially testing the RRR system.
    
-**3D Printer Settings:**
-- We used a PRUSA I3 MK3 3D printer using standard PLA Material and a 0.3mm nozzle.
-- Bed Temperature was set to 70°.
-- Nozzle temperature was set to 210°
-- Flow rate set to 115%
-- Z-offset set to 0.1405 (this value will likely be unique from printer-to-printer, and is usually calibrated during the printer's first time setup, however we are highlighting its importance here because an improper z-offset caused us a slew of printing difficulties in the past).
+   **3D Printer Settings:**
+   - We used a PRUSA I3 MK3 3D printer using standard PLA Material and a 0.3mm nozzle.
+   - Bed Temperature was set to 70°.
+   - Nozzle temperature was set to 210°
+   - Flow rate set to 115%
+   - Z-offset set to 0.1405 (this value will likely be unique from printer-to-printer, and is usually calibrated during the printer's first time setup, however we are highlighting its importance here because an improper z-offset caused us a slew of           printing difficulties in the past).
 
 
 ## Program Installation
