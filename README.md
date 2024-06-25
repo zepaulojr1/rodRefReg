@@ -16,7 +16,6 @@ The Rodent Refreshment Regulator (RRR) is a python-based application that is des
 - [Running the Program](#running-the-program)
 - [Advanced Settings](#advanced-settings)
 - [Email Notifications](#email-notifications)
-- [GUI Overview](#gui-overview)
 - [Statistics](#statistics)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -71,7 +70,6 @@ While not essential for a working RRR system, we designed an assortment of 3D mo
    - Flow rate set to 115%
    - Z-offset set to 0.1405 (this value will likely be unique from printer-to-printer, and is usually calibrated during the printer's first time setup, however we are highlighting its importance here because an improper z-offset caused us a slew of           printing difficulties in the past).
 
-
 ## Program Installation
 1. **Clone the Repository:**
    ```sh
@@ -114,23 +112,26 @@ Before running the program, you need to configure the water dispensing intervals
    ```
 
 2. **Configure Settings via GUI:**
+   - Follow the instructions provided in the welcome header.
    - Answer the questions on the right side of the screen to configure water volume and intervals.
    - Click the "Suggest Settings" button to receive setting recommendations.
    - Click the "Push Settings" button to save these settings.
    - Click "Run Program" to start the water dispensing process.
+  
+     **Note:** All setting changes, trigger notifications, and other alerts will be cast to the in-GUI terminal.
 
 3. **Stop the Program:**
    - Click "Stop Program" or close the GUI window to stop the program.
 
 ## Advanced Settings
-Access advanced settings via the GUI to fine-tune system behavior:
+If more fine-tuned settings are desired, you may instead choose to ignore the suggest settings feature alltogether and manually change your settings within the "Advanced Settings" Section of the GUI. The parameters included in this section are:
 - Enable or disable specific relay pairs
 - Set the number of triggers for each relay pair
 - Adjust interval and stagger times
 - Define water window start and end times
 
 ## Email Notifications (slack?
-The system can send email notifications upon successful water dispensing.
+The system can send email notifications upon successful water dispensing. We used the free-tier offered by [Brevo](https://www.brevo.com/)(formerly SendInBlue) to generate a unique API key required for the RRR's emailing feature, however any equivalent service will likely be sufficient. Once you have aquired the necessary information, you may update the program's code as shown below:
 
 1. **Configure Email Settings:**
    Update the `send_email` function with your SMTP API key and recipient details:
@@ -145,23 +146,16 @@ The system can send email notifications upon successful water dispensing.
    }
    ```
 
-## GUI Overview
-The GUI is divided into several sections:
-- **Welcome Message:** Provides initial instructions and notes.
-- **User Questions:** Collects input for water volume and intervals.
-- **Buttons:** Allows users to suggest settings, push settings, run, and stop the program.
-- **Advanced Settings:** Provides options to enable/disable relay pairs, set triggers, and update intervals and windows.
-- **Terminal:** Displays log messages and system status.
-
-
 ## Statistics
 1. **Variance of Water Delivery**
 
+(add once we refine the process better)
 
 ## Troubleshooting
-- Ensure the Raspberry Pi and relay hat are properly connected.
-- Check GPIO pin configurations if relays are not triggering.
-- Verify interval and time window settings are correctly configured.
+- Ensure the Raspberry Pi and relay hat are properly connected, and that all components are grounded correctly.
+- Check whether the software required for the 16-relays hat is correctly installed (available [here](https://github.com/SequentMicrosystems/16relind-rpi_\)). One indication of this being an issue is if your hat does not light up blue when the RRR program triggers.
+- If your monitor flickers when the program is supposed to trigger, lowering the resolution can help.
+- Verify interval and time window settings are correctly configured. Note that the interval time uses seconds, and the time window functionality uses 24-hour time.
 - Review log messages in the GUI terminal for error details.
 
 ## Contributing
