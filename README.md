@@ -1,26 +1,24 @@
 
 # Rodent Refreshment Regulator Version 15
 
-**Last updated: 06/06/2024 by JS**
+**Last updated: 25/06/2024 by JS -- CURRENTLY A WIP**
 
-Welcome to the Rodent Refreshment Regulator, an automated water dispenser system designed to provide water to laboratory mice at specified intervals. This guide provides detailed instructions on setting up, configuring, and running the system using a Raspberry Pi.
+The Rodent Refreshment Regulator (RRR) is a python-based application that is designed to automatically dispense precice amounts of water to laboratory mice at specified intervals \. Below you will find detailed instructions on setting up, configuring, and running the system using a Raspberry Pi and up to eight stackable sixteen-relay hats from [Sequent Microsystems](https://sequentmicrosystems.com/products/sixteen-relays-8-layer-stackable-hat-for-raspberry-pi).
 
 ## Table of Contents
-- [Introduction](#introduction)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Installation](#installation)
+- [Hardware Overview](#hardware-overview)
+- [Program Installation](#program-installation)
 - [Configuration](#configuration)
 - [Running the Program](#running-the-program)
 - [Advanced Settings](#advanced-settings)
 - [Email Notifications](#email-notifications)
 - [GUI Overview](#gui-overview)
+- [Statistics](#statistics)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
-
-## Introduction
-The Rodent Refreshment Regulator automates the process of providing water to laboratory mice using a relay hat connected to a Raspberry Pi. The system allows users to set specific time windows and intervals for dispensing water, ensuring the mice receive consistent hydration.
 
 ## Features
 - User-friendly GUI for easy configuration
@@ -31,11 +29,29 @@ The Rodent Refreshment Regulator automates the process of providing water to lab
 
 ## Requirements
 - Raspberry Pi (tested on Raspberry Pi 4)
-- Relay hat (e.g., sm_16relind relay hat)
+- Sixten Relays hat from Sequent Microsystems (up to 8 hats depending on the scale of your setup)
 - Python 3
 - Required Python packages (see below)
+- One 10μL micropump for each mouse enclosure
+- An assortment of copper wiring, tubing, and a large water reservoir (see below for details pertaining to quantity and sizing)
+- (optional) a 3D printer with PLA material for printing the apparatus that gets the water tubes into the mouse enclosures
 
-## Installation
+## Hardware Overview
+1. **The Sixteen-Relays Hat**
+The RRR program sends triggers by enabling/disabling the relays atop the hat(s) on your raspberry pi. These hats are stackable depending on the number of relays required (1 relay = 1 water pump for a mouse enclosure), with each hat sporting 16 relays. Relays are sorted into pairs such that there exists one COM terminal (that supplies the power) for every two relays on the hat. As such, a finalized RRR setup using one hat for 16 enclosures would have eight power sources going into each com terminal on the hat, and a 10μL micropump wired into each of the 16 seperate relay ports. In our design, we use 12v power sources because our 10μL micropumps require 12v to trigger. Your voltage needs may differ however, so remember that the relay hats from Sequent Microsystems are designed to handle up to 24v per COM terminal.
+
+Important: due to the nature of these relays being sorted into pairs, the user-settings must be the same for both. For example, Relay pairs 1 & 2 could be configured to trigger 2 times (20μL) every 3 hours between the hours of 08:00 and 21:00, while Relay pairs 3 & 4 may have differing settings chosen. For this reason, mouse enclosures with the same water delivery needs should be wired into the same relay pair, and enclosures with differing needs should use a different relay pair (even if one of the relays in that pair must go unused).
+
+2. **Grounding and Power Sources** (add picture later!)
+
+
+3. **Water Reservoir and Tubing**
+
+
+4. **Optional 3D-Printed Supports**
+(include settings used on PRUSA)
+
+## Program Installation
 1. **Clone the Repository:**
    ```sh
    git clone https://github.com/yourusername/rodent-refreshment-regulator.git
@@ -92,7 +108,7 @@ Access advanced settings via the GUI to fine-tune system behavior:
 - Adjust interval and stagger times
 - Define water window start and end times
 
-## Email Notifications
+## Email Notifications (slack?
 The system can send email notifications upon successful water dispensing.
 
 1. **Configure Email Settings:**
@@ -115,6 +131,11 @@ The GUI is divided into several sections:
 - **Buttons:** Allows users to suggest settings, push settings, run, and stop the program.
 - **Advanced Settings:** Provides options to enable/disable relay pairs, set triggers, and update intervals and windows.
 - **Terminal:** Displays log messages and system status.
+
+
+## Statistics
+1. **Variance of Water Delivery**
+
 
 ## Troubleshooting
 - Ensure the Raspberry Pi and relay hat are properly connected.
