@@ -34,7 +34,7 @@ The Rodent Refreshment Regulator (RRR) is a python-based application that is des
 
 ## Requirements
 - Raspberry Pi (tested on Raspberry Pi 4)
-- 16-Relays hat from [Sequent Microsystems](https://sequentmicrosystems.com/products/sixteen-relays-8-layer-stackable-hat-for-raspberry-pi). (up to 8 hats depending on the scale of your setup)
+- 16-Relays hat from [Sequent Microsystems](https://sequentmicrosystems.com/products/sixteen-relays-8-layer-stackable-hat-for-raspberry-pi) (up to 8 hats depending on the scale of your setup).
 - Python 3
 - Required Python packages (see below)
 - One 10μL micropump for each mouse enclosure. We used model "LPMX0501600B A" from [The Lee Co.](https://www.theleeco.com/products/pumps/)
