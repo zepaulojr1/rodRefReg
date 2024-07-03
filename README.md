@@ -11,6 +11,7 @@ The Rodent Refreshment Regulator (RRR) is a python-based application designed to
 - [Features](#features)
 - [Requirements](#requirements)
 - [Hardware Overview](#hardware-overview)
+- [Stacking the Hats](#stacking-the-hats)
 - [Program Installation](#program-installation)
 - [Configuration](#configuration)
 - [Running the Program](#running-the-program)
@@ -70,6 +71,24 @@ While not essential for a working RRR system, we designed an assortment of 3D mo
    - Flow rate set to 115%
    - Z-offset set to 0.1405 (this value will likely be unique from printer-to-printer, and is usually calibrated during the printer's first time setup, however we are highlighting its importance here because an improper z-offset caused us a slew of           printing difficulties in the past).
 
+## Stacking the Hats 
+**Note: You may skip this section if only using one 16-relays hat**
+
+   **RS485/MODBUS Configuration:**
+   As noted in the documentation for the 16-relays hat, the hats can be configured between RS485 and MODBUS configurations. For the purposes of running the RRR program as originally written, we recommend running the MODBUS configuration because it allows for direct control from the raspberry pi and communicates with the relays hats using standard MODBUS commands. Utilizing this configuration requires no changes to the existing code.
+   
+   However, should you be attempting to extend the functionality of the RRR's code to allow for communication with other devices with RS485 interfaces (i.e., If you wanted to integrate the RRR's relay control system into a larger RS485 network potentally spanning multiple devices), then changes to the code will be necessary according to the documentaion provided by [Sequent Microsystems](https://sequentmicrosystems.com/products/sixteen-relays-8-layer-stackable-hat-for-raspberry-pi)
+   
+   **DIP Switches:**
+   Each 16-relays hat has a six position DIP switch used as a RS485 port (if applicable) and to indicate their stack level. When using a setup that involves multiple hats, ensure that the dip switches for each hat are correctly set to indicate their stack level according to the diagram below from Sequent Microsystems. Please note that despite being listed as hats 1-8 in the RRR's GUI, your first hat should be set to stack level 0, your second hat should be set to 1, and so on in a 0-7 fashion.
+
+![Dip switch diagram](https://github.com/Corticomics/rodRefReg/assets/161750793/a6868aaa-0bf2-430e-be14-96edc84e8fe3)
+
+   Additionally, it should be highlighted that your chosen hat configuration (RS485 or MODBUS) will change how these dip switches need to be setup. Sequent microsystems has detailed documentation regarding this on their [site](https://sequentmicrosystems.com/products/sixteen-relays-8-layer-stackable-hat-for-raspberry-pi), however most RRR users using a simple MODBUS configuration must solely remember to set the DIP switches for TX and RX to OFF (in addition to ensuring the stack levels for each hat are set).   
+
+   **Declaring your Number of Hats:** 
+   When initially launching the RRR program, you will be prompted to input the number of hats you are using in your setup. Based on this value, your GUI will scale accordingly. Be sure that all of your hats and their respective dip switches are installed correctly prior to running the RRR program in order to avoid errors. If errors persist, please see the troubleshooting section below.
+   
 ## Program Installation
 1. **Clone the Repository:**
    ```sh
