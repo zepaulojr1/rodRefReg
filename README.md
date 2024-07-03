@@ -82,7 +82,7 @@ While not essential for a working RRR system, we designed an assortment of 3D mo
    **DIP Switches:**
    Each 16-relays hat has a six position DIP switch used as a RS485 port (if applicable) and to indicate their stack level. When using a setup that involves multiple hats, ensure that the dip switches for each hat are correctly set to indicate their stack level according to the diagram below from Sequent Microsystems. Please note that despite being listed as hats 1-8 in the RRR's GUI, your first hat should be set to stack level 0, your second hat should be set to 1, and so on in a 0-7 fashion.
 
-![Dip switch diagram](https://github.com/Corticomics/rodRefReg/assets/161750793/a6868aaa-0bf2-430e-be14-96edc84e8fe3)
+![Dip switch diagram2](https://github.com/Corticomics/rodRefReg/assets/161750793/f99ebd3d-7b86-44a6-b370-95083e91e388)
 
    Additionally, it should be highlighted that your chosen hat configuration (RS485 or MODBUS) will change how these dip switches need to be setup. Sequent microsystems has detailed documentation regarding this on their [site](https://sequentmicrosystems.com/products/sixteen-relays-8-layer-stackable-hat-for-raspberry-pi), however most RRR users using a simple MODBUS configuration must solely remember to set the DIP switches for TX and RX to OFF (in addition to ensuring the stack levels for each hat are set).   
 
