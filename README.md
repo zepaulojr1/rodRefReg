@@ -58,10 +58,15 @@ A water reservoir is required to provide water to each micropump being used. We 
 
 4. **Optional 3D-Printed Supports:**
 While not essential for a working RRR system, we designed an assortment of 3D models (available in .STL format) that assist in the following ways:
-   - A model to hold and protect the pump in the top portion of the mouse enclosure.
-   - A model to guard the water output tube within each enclosure - features a section for water to be deposited while blocking access to the tube, to prevent mice from chewing on it.
+   - A model to hold and prevent the pump from rolling in the top portion of the mouse enclosure.
+  (Insert picture of irl print and the stl in blender)
+     
+   - A model to recieve the water tube within the mouse enclosure - features a section for water to be deposited while preventing access to the tube, to prevent mice from chewing on it.
+  (Insert picture of irl print and the stl in blender)
+
    - A model to hold a 10ml syringe upright, for use as a makeshift water reservoir when initially testing the RRR system (using a 18G blunt fill needle).
-   
+  (Insert picture of irl print and the stl in blender)
+ 
    **3D Printer Settings:**
    - We used a PRUSA I3 MK3 3D printer using standard PLA Material and a 0.3mm nozzle.
    - Bed Temperature was set to 70°.
