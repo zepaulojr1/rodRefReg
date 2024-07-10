@@ -14,7 +14,7 @@ The Rodent Refreshment Regulator (RRR) is a python-based application designed to
 - [Configuration](#configuration)
 - [Running the Program](#running-the-program)
 - [Advanced Settings](#advanced-settings)
-- [Email Notifications](#email-notifications)
+- [Pump Triger Notifications (Optional)](#pump-trigger-notifications-(optional))
 - [Statistics](#statistics)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -152,7 +152,8 @@ If more fine-tuned settings are desired, you may instead choose to ignore the su
 - Adjust interval and stagger times
 - Define water window start and end times
 
-## Email Notifications (slack?
+## Pump Trigger Notifications (Optional)
+**Method 1: Using Email**
 The system can send email notifications upon successful water dispensing. We used the free-tier offered by [Brevo](https://www.brevo.com/)(formerly SendInBlue) to generate a unique API key required for the RRR's emailing feature, however any equivalent service will likely be sufficient. Once you have aquired the necessary information, you may update the program's code as shown below:
 
 1. **Configure Email Settings:**
@@ -167,6 +168,8 @@ The system can send email notifications upon successful water dispensing. We use
        "htmlContent": content
    }
    ```
+**Method 2: Using a SlackBot**
+(fill in details pertaining to slackbot functionality here!)
 
 ## Statistics
 1. **Variance of Water Delivery**
