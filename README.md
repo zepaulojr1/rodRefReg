@@ -71,6 +71,9 @@ PLA Print             |  STL Model
 ![WaterCollectorStl](https://github.com/Corticomics/rodRefReg/assets/161750793/7f6d6cf0-9865-48db-a0ff-7a0d83dfde89)
 
 
+(also add a picture of parts A and B setup in Unison)
+
+
    **C.** A model to hold a 10ml syringe upright, for use as a makeshift water reservoir when initially testing the RRR system (using a 18G blunt fill needle).
   (Insert picture of irl print and the stl in blender)
   
