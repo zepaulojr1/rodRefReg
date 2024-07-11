@@ -74,13 +74,17 @@ class AdvancedSettingsSection(QGroupBox):
         return entry
 
     def get_settings(self):
-        settings = {
-            'num_hats': self.num_hats_input.value(),
-            'interval': int(self.interval_entry.text()),
-            'stagger': int(self.stagger_entry.text()),
-            'window_start': int(self.window_start_entry.text()),
-            'window_end': int(self.window_end_entry.text()),
-            'selected_relays': [rp for rp, checkbox in self.relay_checkboxes.items() if checkbox.isChecked()],
-            'num_triggers': {rp: int(self.trigger_entries[rp].text()) for rp in self.trigger_entries}
-        }
+        try:
+            settings = {
+                'num_hats': self.num_hats_input.value(),
+                'interval': int(self.interval_entry.text()),
+                'stagger': int(self.stagger_entry.text()),
+                'window_start': int(self.window_start_entry.text()),
+                'window_end': int(self.window_end_entry.text()),
+                'selected_relays': [rp for rp, checkbox in self.relay_checkboxes.items() if checkbox.isChecked()],
+                'num_triggers': {rp: int(self.trigger_entries[rp].text()) for rp in self.trigger_entries}
+            }
+        except ValueError as e:
+            print("Invalid input:", e)
+            settings = None
         return settings

@@ -14,7 +14,7 @@ The Rodent Refreshment Regulator (RRR) is a python-based application designed to
 - [Configuration](#configuration)
 - [Running the Program](#running-the-program)
 - [Advanced Settings](#advanced-settings)
-- [Email Notifications](#email-notifications)
+- [Pump Triger Notifications (Optional)](#pump-trigger-notifications-(optional))
 - [Statistics](#statistics)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -56,12 +56,30 @@ A water reservoir is required to provide water to each micropump being used. We 
 
 **Note:** An excess number of air bubbles in your tubing will likely be present to some extent regardless of the size of your water reservoir. In testing, we found that manually priming each input tube was highly useful in eliminating excess air (i.e., connecting the micropump to its water input tube while water is flowing through it). Following this, we were able to eliminate the remaining air bubbles by running the program 200 times per pump (i.e., setting the triggers per relay pair to 200 and allowing a single interval to elapse) prior to using them for the mice. This protocol greatly reduced the variance in the quanitiy of water released by each pump per trigger.
 
-4. **Optional 3D-Printed Supports:**
+4. **Optional 3D-Printed Support Structures:**
 While not essential for a working RRR system, we designed an assortment of 3D models (available in .STL format) that assist in the following ways:
-   - A model to hold and protect the pump in the top portion of the mouse enclosure.
-   - A model to guard the water output tube within each enclosure - features a section for water to be deposited while blocking access to the tube, to prevent mice from chewing on it.
-   - A model to hold a 10ml syringe upright, for use as a makeshift water reservoir when initially testing the RRR system (using a 18G blunt fill needle).
-   
+
+   **A.** A model to hold and prevent the pump from rolling in the top portion of the mouse enclosure.
+
+PLA Print             |  STL Model
+:-------------------------:|:-------------------------:
+![](https://github.com/Corticomics/rodRefReg/assets/161750793/e443ed86-5dcb-4d52-b868-19b0ad4ba63d)  |  ![](https://github.com/Corticomics/rodRefReg/assets/161750793/e947e0f0-0769-4a04-88da-f6dc27c7cdfc)
+  
+   **B.** A model to recieve the water tube within the mouse enclosure - features a section for water to be deposited while preventing access to the tube, to prevent mice from chewing on it.
+  (Insert picture of irl print and the stl in blender)
+  
+![WaterCollectorStl](https://github.com/Corticomics/rodRefReg/assets/161750793/7f6d6cf0-9865-48db-a0ff-7a0d83dfde89)
+
+
+(also add a picture of parts A and B setup in Unison)
+
+
+   **C.** A model to hold a 10ml syringe upright, for use as a makeshift water reservoir when initially testing the RRR system (using a 18G blunt fill needle).
+  (Insert picture of irl print and the stl in blender)
+  
+![10ml_Water_Reservoir_Mount_x4](https://github.com/Corticomics/rodRefReg/assets/161750793/b99b08bc-4052-417a-88ea-356c3f739c3f)
+
+ 
    **3D Printer Settings:**
    - We used a PRUSA I3 MK3 3D printer using standard PLA Material and a 0.3mm nozzle.
    - Bed Temperature was set to 70°.
@@ -147,7 +165,8 @@ If more fine-tuned settings are desired, you may instead choose to ignore the su
 - Adjust interval and stagger times
 - Define water window start and end times
 
-## Email Notifications (slack?
+## Pump Trigger Notifications (Optional)
+**Method 1: Using Email**
 The system can send email notifications upon successful water dispensing. We used the free-tier offered by [Brevo](https://www.brevo.com/)(formerly SendInBlue) to generate a unique API key required for the RRR's emailing feature, however any equivalent service will likely be sufficient. Once you have aquired the necessary information, you may update the program's code as shown below:
 
 1. **Configure Email Settings:**
@@ -162,6 +181,8 @@ The system can send email notifications upon successful water dispensing. We use
        "htmlContent": content
    }
    ```
+**Method 2: Using a SlackBot**
+(fill in details pertaining to slackbot functionality here!)
 
 ## Statistics
 1. **Variance of Water Delivery**
