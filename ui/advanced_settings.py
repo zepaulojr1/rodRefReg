@@ -1,14 +1,20 @@
-from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QScrollArea, QWidget, QCheckBox
-from PyQt5.QtCore import Qt  # Add this import
+from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QScrollArea, QWidget, QCheckBox, QSpinBox
+from PyQt5.QtCore import Qt
 
 class AdvancedSettingsSection(QGroupBox):
-    def __init__(self, settings, update_all_settings_callback, print_to_terminal_callback):
+    def __init__(self, settings, update_all_settings_callback):
         super().__init__("Advanced Settings")
         self.settings = settings
         self.update_all_settings_callback = update_all_settings_callback
-        self.print_to_terminal = print_to_terminal_callback
 
         layout = QVBoxLayout()
+
+        # Number of relay hats input
+        layout.addWidget(QLabel("Number of Relay Hats:"))
+        self.num_hats_input = QSpinBox()
+        self.num_hats_input.setRange(1, 8)
+        self.num_hats_input.setValue(self.settings.get('num_hats', 1))
+        layout.addWidget(self.num_hats_input)
 
         self.relay_checkboxes = {}
         self.trigger_entries = {}
@@ -68,23 +74,13 @@ class AdvancedSettingsSection(QGroupBox):
         return entry
 
     def get_settings(self):
-        try:
-            interval = int(self.interval_entry.text())
-            stagger = int(self.stagger_entry.text())
-            window_start = int(self.window_start_entry.text())
-            window_end = int(self.window_end_entry.text())
-            selected_relays = [rp for rp, checkbox in self.relay_checkboxes.items() if checkbox.isChecked()]
-            num_triggers = {rp: int(self.trigger_entries[rp].text()) for rp in self.trigger_entries}
-
-            settings = {
-                'interval': interval,
-                'stagger': stagger,
-                'window_start': window_start,
-                'window_end': window_end,
-                'selected_relays': selected_relays,
-                'num_triggers': num_triggers
-            }
-            return settings
-        except ValueError as e:
-            self.print_to_terminal("Please enter valid integer values for all settings.")
-            return None
+        settings = {
+            'num_hats': self.num_hats_input.value(),
+            'interval': int(self.interval_entry.text()),
+            'stagger': int(self.stagger_entry.text()),
+            'window_start': int(self.window_start_entry.text()),
+            'window_end': int(self.window_end_entry.text()),
+            'selected_relays': [rp for rp, checkbox in self.relay_checkboxes.items() if checkbox.isChecked()],
+            'num_triggers': {rp: int(self.trigger_entries[rp].text()) for rp in self.trigger_entries}
+        }
+        return settings
