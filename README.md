@@ -59,10 +59,11 @@ A water reservoir is required to provide water to each micropump being used. We 
 4. **Optional 3D-Printed Support Structures:**
 While not essential for a working RRR system, we designed an assortment of 3D models (available in .STL format) that assist in the following ways:
    A. A model to hold and prevent the pump from rolling in the top portion of the mouse enclosure.
-   
-![Tray Pics](https://github.com/Corticomics/rodRefReg/assets/161750793/e443ed86-5dcb-4d52-b868-19b0ad4ba63d) ![RRR_Pump_Holder](https://github.com/Corticomics/rodRefReg/assets/161750793/e947e0f0-0769-4a04-88da-f6dc27c7cdfc)
 
-     
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](https://github.com/Corticomics/rodRefReg/assets/161750793/e443ed86-5dcb-4d52-b868-19b0ad4ba63d)  |  ![](https://github.com/Corticomics/rodRefReg/assets/161750793/e947e0f0-0769-4a04-88da-f6dc27c7cdfc)
+  
    B. A model to recieve the water tube within the mouse enclosure - features a section for water to be deposited while preventing access to the tube, to prevent mice from chewing on it.
   (Insert picture of irl print and the stl in blender)
   
